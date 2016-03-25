@@ -96,14 +96,14 @@ public class ActivityVR extends CardBoardAndroidApplication implements CardBoard
         environment.add(new DirectionalLight().set(Color.BLUE, 1f, 1f, 0f));
         environment.add(new DirectionalLight().set(Color.RED, -1f, 1f, 0f));
 
-        UBJsonReader reader = new UBJsonReader();
-        G3dModelLoader modelLoader = new G3dModelLoader(reader);
-
-        model = new ModelInstance(modelLoader.loadModel(Gdx.files.internal("libertstatue/statu.g3db")));
-
-//        ObjLoader loader = new ObjLoader();
+//        UBJsonReader reader = new UBJsonReader();
+//        G3dModelLoader modelLoader = new G3dModelLoader(reader);
 //
-//        model = new ModelInstance(loader.loadModel(Gdx.files.internal("libertstatue/LibertStatue.obj")));
+//        model = new ModelInstance(modelLoader.loadModel(Gdx.files.internal("libertstatue/statu.g3db")));
+
+        ObjLoader loader = new ObjLoader();
+
+        model = new ModelInstance(loader.loadModel(Gdx.files.internal("moscow/moscow.obj")));
 
         model.transform.scl(0.4f);
 
