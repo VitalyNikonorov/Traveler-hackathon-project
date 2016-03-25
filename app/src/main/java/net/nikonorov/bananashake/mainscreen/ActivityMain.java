@@ -105,7 +105,7 @@ public class ActivityMain extends AppCompatActivity implements SensorEventListen
 
     @Override
     public void onSensorChanged(SensorEvent event) {
-        if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
+        if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER && viewPager.getCurrentItem() == FragmentSet.SHAKER) {
             long curTime = System.currentTimeMillis();
             // only allow one update every 100ms.
             if ((curTime - lastUpdate) > 100) {
