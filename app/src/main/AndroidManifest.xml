@@ -1,29 +1,42 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="net.nikonorov.bananashake">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
-        android:allowBackup="true"
-        android:name=".App"
         android:icon="@drawable/ico"
+        android:allowBackup="true"
         android:label="@string/app_name"
         android:supportsRtl="true"
+        android:name=".App"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".mainscreen.ActivityMain"
+        <activity
+            android:name=".mainscreen.ActivityMain"
             android:screenOrientation="portrait">
 
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name=".ActivityVR"
-            android:screenOrientation="landscape"
-            android:configChanges="orientation|keyboardHidden|screenSize"/>
+        <activity
+            android:name=".ActivityVR"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="landscape" />
 
-        <activity android:name=".ActivityPlace"
-            android:screenOrientation="portrait"/>
+
+        <activity android:name=".ActivityPlace" />
+        <activity
+            android:name="com.vk.sdk.VKServiceActivity"
+            android:label="ServiceActivity"
+            android:theme="@style/VK.Transparent" />
+        <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
+             App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
 
     </application>
 

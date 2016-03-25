@@ -1,12 +1,29 @@
 package net.nikonorov.bananashake;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.google.android.gms.appindexing.Action;
+import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.vk.sdk.VKAccessToken;
+import com.vk.sdk.VKCallback;
+import com.vk.sdk.VKScope;
+import com.vk.sdk.VKSdk;
+import com.vk.sdk.api.VKError;
+import com.vk.sdk.api.photo.VKImageParameters;
+import com.vk.sdk.api.photo.VKUploadImage;
+import com.vk.sdk.dialogs.VKShareDialog;
+import com.vk.sdk.dialogs.VKShareDialogBuilder;
 
 import net.nikonorov.bananashake.utils.AmazingPicture;
 
@@ -15,6 +32,7 @@ import net.nikonorov.bananashake.utils.AmazingPicture;
  */
 public class ActivityPlace extends AppCompatActivity {
 
+    private static final String LOG_TAG = "MyActivityPlace";
     private City city = null;
     private AmazingPicture photo;
     private TextView cityName;
@@ -44,14 +62,74 @@ public class ActivityPlace extends AppCompatActivity {
                 startActivity(new Intent(ActivityPlace.this, ActivityVR.class));
             }
         });
+        findViewById(R.id.share).setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        vkLogin();
+                    }
+                }
+        );
+    }
 
+    private void vkLogin() {
+        VKSdk.login(this, VKScope.WALL);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (!VKSdk.onActivityResult(requestCode, resultCode, data, new VKCallback<VKAccessToken>() {
+            @Override
+            public void onResult(VKAccessToken res) {
+                shareVK();
+                // User passed Authorization
+            }
+            @Override
+            public void onError(VKError error) {
+                // User didn't pass Authorization
+            }
+        })) {
+            super.onActivityResult(requestCode, resultCode, data);
+        }
+    }
+
+    private void shareVK() {
+
+        final Bitmap bitmap = ((BitmapDrawable) photo.getDrawable()).getBitmap();
+        setContentView(R.layout.activity_place);
+        VKShareDialogBuilder vkShareDialogBuilder = new VKShareDialogBuilder();
+        vkShareDialogBuilder
+                .setText("Зацени приложение BananaShake")
+                .setAttachmentImages(new VKUploadImage[]{
+                        new VKUploadImage(bitmap, VKImageParameters.jpgImage(1))
+                })
+                .setAttachmentLink("Зацени приложение BananaShake", "http://bananashake.ru")
+                .setShareDialogListener(new VKShareDialog.VKShareDialogListener() {
+                    @Override
+                    public void onVkShareComplete(int postId) {
+                        //контент отправлен
+                        Log.d(LOG_TAG, "onVkShareComplete");
+                    }
+
+                    @Override
+                    public void onVkShareCancel() {
+                        //отмена
+                        Log.d(LOG_TAG, "onVkShareCancel");
+                    }
+
+                    @Override
+                    public void onVkShareError(VKError error) {
+                        Log.d(LOG_TAG, "onVkShareError");
+                        Log.d(LOG_TAG, error.toString());
+                    }
+                }).show(getFragmentManager(), "VK_SHARE_DIALOG");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
 
-        city = ((App) getApplication()).cities.get(Values.city);
+        city = App.cities.get(Values.city);
 
         Drawable drawable = getResources().getDrawable(getResources()
                 .getIdentifier(city.photo, "drawable", getPackageName()));

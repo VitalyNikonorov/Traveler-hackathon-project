@@ -2,6 +2,9 @@ package net.nikonorov.bananashake;
 
 import android.app.Application;
 
+import com.vk.sdk.VKSdk;
+import com.vk.sdk.util.VKUtil;
+
 import java.util.ArrayList;
 
 /**
@@ -44,6 +47,10 @@ public class App extends Application {
 
         cities.add(new City(18, "France", "Paris", "paris", "saber/saber.g3db", 3, 9));
         cities.add(new City(19, "France", "Courcheval", "courcheval", "saber/saber.g3db", 4, 19));
+
+        VKSdk.initialize(getApplicationContext());
+
+        VKUtil.getCertificateFingerprint(this, this.getPackageName());
 
     }
 }
