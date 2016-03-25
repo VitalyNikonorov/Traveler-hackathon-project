@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <net.nikonorov.bananashake.utils.AmazingPicture
+        android:id="@+id/city_image"
+        android:src="@drawable/paris"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/city_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:layout_marginLeft="16dp"
+        android:textSize="40sp"
+        android:text="Paris"
+        android:layout_above="@+id/vr_btn"/>
+
+    <Button
+        android:id="@+id/vr_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="VR"
+        android:layout_below="@+id/city_image"/>
+
+</RelativeLayout>

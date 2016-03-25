@@ -16,11 +16,4 @@
         </android.support.v4.view.PagerTabStrip>
     </android.support.v4.view.ViewPager>
 
-    <Button
-        android:id="@+id/btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="push me"
-        />
-
 </RelativeLayout>

@@ -19,6 +19,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.Toast;
 
+import net.nikonorov.bananashake.ActivityPlace;
 import net.nikonorov.bananashake.ActivityVR;
 import net.nikonorov.bananashake.FragmentSet;
 import net.nikonorov.bananashake.R;
@@ -44,6 +45,7 @@ public class ActivityMain extends AppCompatActivity implements SensorEventListen
     private PagerAdapter pagerAdapter;
     private SensorManager sensorMgr;
     private long lastUpdate = 0;
+    private boolean isChosen = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,16 +93,12 @@ public class ActivityMain extends AppCompatActivity implements SensorEventListen
             }
         });
 
+    }
 
-        Button vrBtn = (Button) findViewById(R.id.btn);
-
-        vrBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(ActivityMain.this, ActivityVR.class));
-            }
-        });
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+        isChosen = false;
     }
 
     @Override
@@ -124,8 +122,15 @@ public class ActivityMain extends AppCompatActivity implements SensorEventListen
                         - lastValues[Z]) / diffTime * 10000;
 
                 if (speed > SHAKE_THRESHOLD) {
-                    Log.d("sensor", "shake detected w/ speed: " + speed);
-                    Toast.makeText(this, "shake detected w/ speed: " + speed, Toast.LENGTH_SHORT).show();
+                    if(!isChosen) {
+                        isChosen = true;
+                        Log.d("sensor", "shake detected w/ speed: " + speed);
+                        Toast.makeText(this, "shake detected w/ speed: " + speed, Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(ActivityMain.this, ActivityPlace.class));
+                    }
+
+
+
                 }
                 lastValues[X] = currentValues[X];
                 lastValues[Y] = currentValues[Y];
