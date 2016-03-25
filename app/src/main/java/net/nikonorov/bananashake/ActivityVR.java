@@ -99,7 +99,7 @@ public class ActivityVR extends CardBoardAndroidApplication implements CardBoard
         UBJsonReader reader = new UBJsonReader();
         G3dModelLoader modelLoader = new G3dModelLoader(reader);
 
-        model = new ModelInstance(modelLoader.loadModel(Gdx.files.internal("libertstatue/LibertStatue.g3db")));
+        model = new ModelInstance(modelLoader.loadModel(Gdx.files.internal("libertstatue/statu.g3db")));
 
 //        ObjLoader loader = new ObjLoader();
 //

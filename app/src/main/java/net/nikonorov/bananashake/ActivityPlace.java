@@ -28,6 +28,8 @@ public class ActivityPlace extends AppCompatActivity {
 
         setContentView(R.layout.activity_place);
 
+        getSupportActionBar().hide();
+
         photo = (AmazingPicture) findViewById(R.id.city_image);
         cityName = (TextView) findViewById(R.id.city_name);
         countryName = (TextView) findViewById(R.id.country_name);
