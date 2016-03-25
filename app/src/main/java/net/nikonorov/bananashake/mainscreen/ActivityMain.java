@@ -126,7 +126,7 @@ public class ActivityMain extends AppCompatActivity implements SensorEventListen
                 if (speed > SHAKE_THRESHOLD) {
                     if(!isChosen) {
                         isChosen = true;
-                        Values.city = Math.abs(new Random(System.currentTimeMillis()).nextInt()) % 20 ;
+                        Values.city = (int) speed % 20; //Math.abs(new Random(System.currentTimeMillis()).nextInt()) % 20 ;
                         Log.d("sensor", "shake detected w/ speed: " + speed);
                         Toast.makeText(this, "shake detected w/ speed: " + speed, Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(ActivityMain.this, ActivityPlace.class));
