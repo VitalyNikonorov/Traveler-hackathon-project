@@ -15,9 +15,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@android:color/white"
+        android:background="@android:color/black"
         android:layout_marginLeft="16dp"
         android:textSize="40sp"
         android:text="Paris"
+        android:layout_above="@+id/country_name"/>
+
+    <TextView
+        android:id="@+id/country_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:background="@android:color/black"
+        android:layout_marginLeft="16dp"
+        android:textSize="30sp"
+        android:text="country: France"
         android:layout_above="@+id/vr_btn"/>
 
     <Button

@@ -18,7 +18,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ActivityVR"/>
+        <activity android:name=".ActivityVR"
+            android:screenOrientation="landscape"
+            android:configChanges="orientation|keyboardHidden|screenSize"/>
 
         <activity android:name=".ActivityPlace"/>
 

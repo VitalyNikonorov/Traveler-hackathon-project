@@ -18,6 +18,7 @@ public class ActivityPlace extends AppCompatActivity {
     private City city = null;
     private AmazingPicture photo;
     private TextView cityName;
+    private TextView countryName;
 
 
     @Override
@@ -28,6 +29,7 @@ public class ActivityPlace extends AppCompatActivity {
 
         photo = (AmazingPicture) findViewById(R.id.city_image);
         cityName = (TextView) findViewById(R.id.city_name);
+        countryName = (TextView) findViewById(R.id.country_name);
 
 
         Button vrBtn = (Button) findViewById(R.id.vr_btn);
@@ -52,6 +54,10 @@ public class ActivityPlace extends AppCompatActivity {
         photo.setImageDrawable(drawable);
 
         cityName.setText(city.name);
+        cityName.setAlpha(0.6f);
+
+        countryName.setText(city.country);
+        countryName.setAlpha(0.6f);
 
     }
 }
