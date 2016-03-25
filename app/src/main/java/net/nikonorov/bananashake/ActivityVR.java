@@ -17,7 +17,7 @@ public class ActivityVR extends CardBoardAndroidApplication implements CardBoard
 
     @Override
     public void onDrawEye(Eye paramEye) {
-
+    //
     }
 
     @Override
