@@ -1,35 +1,62 @@
-package net.nikonorov.bananashake;
+package net.nikonorov.bananashake.mainscreen;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.Toast;
+
+import net.nikonorov.bananashake.ActivityVR;
+import net.nikonorov.bananashake.FragmentSet;
+import net.nikonorov.bananashake.R;
 
 /**
  * Created by vitaly on 25.03.16.
  */
-public class ActivityMain extends AppCompatActivity {
+public class ActivityMain extends AppCompatActivity implements SensorEventListener {
 
     private ViewPager viewPager;
     private final int PAGE_COUNT = 3;
+    private static final int SHAKE_THRESHOLD = 5000;
+
+    private static final int X = 0;
+    private static final int Y = 1;
+    private static final int Z = 2;
+
+    private float[] currentValues = new float[3];
+    private float[] lastValues = new float[3];
 
     private Fragment[] fragments = new Fragment[PAGE_COUNT];
     private String[] titles = new String[PAGE_COUNT];
     private PagerAdapter pagerAdapter;
+    private SensorManager sensorMgr;
+    private long lastUpdate = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
+        sensorMgr = (SensorManager) getSystemService(SENSOR_SERVICE);
+
+        sensorMgr.registerListener(this,
+                sensorMgr.getDefaultSensor(Sensor.TYPE_ACCELEROMETER),
+                SensorManager.SENSOR_DELAY_FASTEST);
+
+
 
         fragments[FragmentSet.SHAKER] = new FragmentShaker();
         fragments[FragmentSet.FRIENDS] = new FragmentFriends();
@@ -73,6 +100,43 @@ public class ActivityMain extends AppCompatActivity {
                 startActivity(new Intent(ActivityMain.this, ActivityVR.class));
             }
         });
+
+    }
+
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+        if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
+            long curTime = System.currentTimeMillis();
+            // only allow one update every 100ms.
+            if ((curTime - lastUpdate) > 100) {
+                long diffTime = (curTime - lastUpdate);
+                lastUpdate = curTime;
+
+                currentValues[X] = event.values[X];
+                currentValues[Y] = event.values[Y];
+                currentValues[Z] = event.values[Z];
+
+                float speed = Math.abs(currentValues[X]
+                        + currentValues[Y]
+                        + currentValues[Z]
+                        - lastValues[X]
+                        - lastValues[Y]
+                        - lastValues[Z]) / diffTime * 10000;
+
+                if (speed > SHAKE_THRESHOLD) {
+                    Log.d("sensor", "shake detected w/ speed: " + speed);
+                    Toast.makeText(this, "shake detected w/ speed: " + speed, Toast.LENGTH_SHORT).show();
+                }
+                lastValues[X] = currentValues[X];
+                lastValues[Y] = currentValues[Y];
+                lastValues[Z] = currentValues[Z];
+            }
+        }
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
     }
 
 
