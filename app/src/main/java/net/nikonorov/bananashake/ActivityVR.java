@@ -15,6 +15,7 @@ import com.badlogic.gdx.graphics.g3d.ModelInstance;
 import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute;
 import com.badlogic.gdx.graphics.g3d.environment.DirectionalLight;
 import com.badlogic.gdx.graphics.g3d.loader.G3dModelLoader;
+import com.badlogic.gdx.graphics.g3d.loader.ObjLoader;
 import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.utils.UBJsonReader;
 import com.google.vrtoolkit.cardboard.Eye;
@@ -27,7 +28,7 @@ import com.google.vrtoolkit.cardboard.Viewport;
 public class ActivityVR extends CardBoardAndroidApplication implements CardBoardApplicationListener {
 
     private CardboardCamera cam;
-    private ModelInstance saber;
+    private ModelInstance model;
     private ModelBatch batch;
     private Environment environment;
     private static final float Z_NEAR = 0.1f;
@@ -98,11 +99,15 @@ public class ActivityVR extends CardBoardAndroidApplication implements CardBoard
         UBJsonReader reader = new UBJsonReader();
         G3dModelLoader modelLoader = new G3dModelLoader(reader);
 
-        saber = new ModelInstance(modelLoader.loadModel(Gdx.files.internal("saber/saber.g3db")));
+        model = new ModelInstance(modelLoader.loadModel(Gdx.files.internal("libertstatue/LibertStatue.g3db")));
 
-        saber.transform.scl(0.4f);
+//        ObjLoader loader = new ObjLoader();
+//
+//        model = new ModelInstance(loader.loadModel(Gdx.files.internal("libertstatue/LibertStatue.obj")));
 
-        saber.transform.translate(2, 5, -3);
+        model.transform.scl(0.4f);
+
+        model.transform.translate(2, 5, -3);
     }
 
     @Override
@@ -130,7 +135,7 @@ public class ActivityVR extends CardBoardAndroidApplication implements CardBoard
 
     @Override
     public void onNewFrame(HeadTransform paramHeadTransform) {
-        saber.transform.rotate(0, 1, 0, - Gdx.graphics.getDeltaTime() * 30);
+        model.transform.rotate(0, 1, 0, - Gdx.graphics.getDeltaTime() * 30);
         Gdx.gl.glClearColor(1f, 1f, 1f, 1f);
     }
 
@@ -147,7 +152,7 @@ public class ActivityVR extends CardBoardAndroidApplication implements CardBoard
 
         batch.begin(cam);
 
-        batch.render(saber, environment);
+        batch.render(model, environment);
 
         batch.end();
     }
