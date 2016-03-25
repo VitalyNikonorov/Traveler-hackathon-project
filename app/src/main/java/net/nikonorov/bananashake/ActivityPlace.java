@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -12,9 +11,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.google.android.gms.appindexing.Action;
-import com.google.android.gms.appindexing.AppIndex;
-import com.google.android.gms.common.api.GoogleApiClient;
 import com.vk.sdk.VKAccessToken;
 import com.vk.sdk.VKCallback;
 import com.vk.sdk.VKScope;
@@ -73,7 +69,12 @@ public class ActivityPlace extends AppCompatActivity {
     }
 
     private void vkLogin() {
-        VKSdk.login(this, VKScope.WALL);
+        VKSdk.login(this, VKScope.FRIENDS,
+                VKScope.WALL,
+                VKScope.PHOTOS,
+                VKScope.NOHTTPS,
+                VKScope.MESSAGES,
+                VKScope.DOCS);
     }
 
     @Override
@@ -84,6 +85,7 @@ public class ActivityPlace extends AppCompatActivity {
                 shareVK();
                 // User passed Authorization
             }
+
             @Override
             public void onError(VKError error) {
                 // User didn't pass Authorization
@@ -99,7 +101,7 @@ public class ActivityPlace extends AppCompatActivity {
         setContentView(R.layout.activity_place);
         VKShareDialogBuilder vkShareDialogBuilder = new VKShareDialogBuilder();
         vkShareDialogBuilder
-                .setText("Зацени приложение BananaShake")
+                .setText(String.format("Побывал в городе %s", cityName))
                 .setAttachmentImages(new VKUploadImage[]{
                         new VKUploadImage(bitmap, VKImageParameters.jpgImage(1))
                 })
