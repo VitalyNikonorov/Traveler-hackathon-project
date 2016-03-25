@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <net.nikonorov.bananashake.utils.AmazingPicture
+        android:id="@+id/item_city_image"
+        android:src="@drawable/paris"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/item_city_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:background="@android:color/black"
+        android:layout_marginLeft="16dp"
+        android:textSize="30sp"
+        android:text="Paris" />
+
+    <TextView
+        android:id="@+id/item_country_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:background="@android:color/black"
+        android:layout_marginLeft="16dp"
+        android:textSize="20sp"
+        android:text="country: France"
+        android:layout_below="@+id/item_city_name"/>
+
+</RelativeLayout>

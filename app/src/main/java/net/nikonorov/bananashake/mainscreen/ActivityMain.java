@@ -23,8 +23,6 @@ import net.nikonorov.bananashake.FragmentSet;
 import net.nikonorov.bananashake.R;
 import net.nikonorov.bananashake.Values;
 
-import java.util.Random;
-
 /**
  * Created by vitaly on 25.03.16.
  */
@@ -128,7 +126,7 @@ public class ActivityMain extends AppCompatActivity implements SensorEventListen
                         isChosen = true;
                         Values.city = (int) speed % 20; //Math.abs(new Random(System.currentTimeMillis()).nextInt()) % 20 ;
                         Log.d("sensor", "shake detected w/ speed: " + speed);
-                        Toast.makeText(this, "shake detected w/ speed: " + speed, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "shake detected, speed: " + speed, Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(ActivityMain.this, ActivityPlace.class));
                     }
 
