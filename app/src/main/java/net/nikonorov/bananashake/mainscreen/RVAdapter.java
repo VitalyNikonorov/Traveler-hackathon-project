@@ -2,6 +2,7 @@ package net.nikonorov.bananashake.mainscreen;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 import net.nikonorov.bananashake.ActivityPlace;
 import net.nikonorov.bananashake.City;
 import net.nikonorov.bananashake.R;
+import net.nikonorov.bananashake.Values;
 import net.nikonorov.bananashake.utils.AmazingPicture;
 
 import java.util.ArrayList;
@@ -38,7 +40,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ItemViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(ItemViewHolder holder, int position) {
+    public void onBindViewHolder(ItemViewHolder holder, final int position) {
         City city = data.get(position);
         Drawable drawable = activity.getResources().getDrawable(activity.getResources()
                 .getIdentifier(city.photo, "drawable", activity.getPackageName()));
@@ -46,6 +48,14 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ItemViewHolder> {
 
         holder.cityName.setText(city.name);
         holder.countryName.setText(city.country);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Values.city = position;
+                activity.startActivity(new Intent(activity, ActivityPlace.class));
+            }
+        });
     }
 
     @Override
@@ -67,6 +77,5 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ItemViewHolder> {
             countryName = (TextView) itemView.findViewById(R.id.item_country_name);
 
         }
-
     }
 }
