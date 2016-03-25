@@ -101,7 +101,7 @@ public class ActivityPlace extends AppCompatActivity {
         setContentView(R.layout.activity_place);
         VKShareDialogBuilder vkShareDialogBuilder = new VKShareDialogBuilder();
         vkShareDialogBuilder
-                .setText(String.format("Побывал в городе %s", cityName))
+                .setText(String.format("Побывал в городе %s", cityName.getText()))
                 .setAttachmentImages(new VKUploadImage[]{
                         new VKUploadImage(bitmap, VKImageParameters.jpgImage(1))
                 })
