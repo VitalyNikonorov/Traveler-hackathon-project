@@ -1,9 +1,16 @@
 package net.nikonorov.bananashake;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v13.app.FragmentPagerAdapter;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 
 /**
@@ -11,11 +18,52 @@ import android.widget.Button;
  */
 public class ActivityMain extends AppCompatActivity {
 
+    private ViewPager viewPager;
+    private final int PAGE_COUNT = 3;
+
+    private Fragment[] fragments = new Fragment[PAGE_COUNT];
+    private String[] titles = new String[PAGE_COUNT];
+    private PagerAdapter pagerAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
+
+        fragments[FragmentSet.SHAKER] = new FragmentShaker();
+        fragments[FragmentSet.FRIENDS] = new FragmentFriends();
+        fragments[FragmentSet.POPULAR] = new FragmentPopular();
+
+        titles[FragmentSet.SHAKER] = "Shaker";
+        titles[FragmentSet.FRIENDS] = "Friends";
+        titles[FragmentSet.POPULAR] = "Popular";
+
+        viewPager = (ViewPager) findViewById(R.id.pager);
+        pagerAdapter = new MyFragmentPagerAdapter(getFragmentManager());
+        viewPager.setAdapter(pagerAdapter);
+
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                //Log.i("TAG", "Scrolled");
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+                View view = ActivityMain.this.getCurrentFocus();
+                InputMethodManager imm = (InputMethodManager) ActivityMain.this.getSystemService(Context.INPUT_METHOD_SERVICE);
+                if (view != null) {
+                    imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+                }
+            }
+        });
+
 
         Button vrBtn = (Button) findViewById(R.id.btn);
 
@@ -25,5 +73,28 @@ public class ActivityMain extends AppCompatActivity {
                 startActivity(new Intent(ActivityMain.this, ActivityVR.class));
             }
         });
+    }
+
+
+    private class MyFragmentPagerAdapter extends FragmentPagerAdapter {
+
+        public MyFragmentPagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return fragments[position];
+        }
+
+        @Override
+        public int getCount() {
+            return PAGE_COUNT;
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return titles[position];
+        }
     }
 }
