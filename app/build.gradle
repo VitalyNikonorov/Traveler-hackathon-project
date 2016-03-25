@@ -25,6 +25,7 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.1.0'
     compile 'com.android.support:support-v13:23.1.0'
+    compile 'com.vk:androidsdk:1.6.5'
 
     compile 'com.android.support:cardview-v7:23.1.0'
     compile 'com.android.support:recyclerview-v7:23.1.0'
@@ -37,4 +38,7 @@ dependencies {
 tasks.withType(com.android.build.gradle.tasks.PackageApplication) { pkgTask ->
     pkgTask.jniFolders = new HashSet<File>()
     pkgTask.jniFolders.add(new File(projectDir, 'libs'))
+}
+dependencies {
+    compile 'com.google.android.gms:play-services-appindexing:8.1.0'
 }
