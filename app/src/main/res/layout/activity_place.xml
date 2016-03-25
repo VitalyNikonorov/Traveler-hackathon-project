@@ -32,6 +32,15 @@
         android:text="country: France"
         android:layout_above="@+id/vr_btn"/>
 
+    <TextView
+        android:id="@+id/city_rating"
+        android:textSize="15sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text="raring"
+        android:layout_below="@+id/city_image"/>
+
     <Button
         android:id="@+id/vr_btn"
         android:layout_width="wrap_content"

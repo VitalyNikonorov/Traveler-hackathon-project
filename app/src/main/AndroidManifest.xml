@@ -22,7 +22,8 @@
             android:screenOrientation="landscape"
             android:configChanges="orientation|keyboardHidden|screenSize"/>
 
-        <activity android:name=".ActivityPlace"/>
+        <activity android:name=".ActivityPlace"
+            android:screenOrientation="portrait"/>
 
     </application>
 
