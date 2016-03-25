@@ -50,6 +50,7 @@ public class FragmentShaker extends Fragment {
             public void onItemSelected(AdapterView<?> parent, View view,
                                        int position, long id) {
                 // показываем позиция нажатого элемента
+                Values.worldPart = position;
                 Toast.makeText(getActivity().getBaseContext(), "Position = " + position, Toast.LENGTH_SHORT).show();
             }
             @Override

@@ -121,10 +121,17 @@ public class ActivityMain extends AppCompatActivity implements SensorEventListen
                         - lastValues[Y]
                         - lastValues[Z]) / diffTime * 10000;
 
+                //String[] data = {"All world", "Australia", "Asia", "Americas", "Africa", "Europe"};
+
                 if (speed > SHAKE_THRESHOLD) {
                     if(!isChosen) {
                         isChosen = true;
-                        Values.city = (int) speed % 20; //Math.abs(new Random(System.currentTimeMillis()).nextInt()) % 20 ;
+
+                        if (Values.worldPart != 0) {
+                            Values.city = 4 * (Values.worldPart -1) + (int) speed % 4;
+                        }else {
+                            Values.city = (int) speed % 20; //Math.abs(new Random(System.currentTimeMillis()).nextInt()) % 20 ;
+                        }
                         Log.d("sensor", "shake detected w/ speed: " + speed);
                         Toast.makeText(this, "shake detected, speed: " + speed, Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(ActivityMain.this, ActivityPlace.class));

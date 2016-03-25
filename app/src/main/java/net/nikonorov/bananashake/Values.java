@@ -9,4 +9,6 @@ public class Values {
 
     public static int city = 0;
 
+    public static int worldPart = 0;
+
 }
