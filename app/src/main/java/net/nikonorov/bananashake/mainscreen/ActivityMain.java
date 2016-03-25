@@ -16,13 +16,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
 import android.widget.Toast;
 
 import net.nikonorov.bananashake.ActivityPlace;
-import net.nikonorov.bananashake.ActivityVR;
 import net.nikonorov.bananashake.FragmentSet;
 import net.nikonorov.bananashake.R;
+import net.nikonorov.bananashake.Values;
+
+import java.util.Random;
 
 /**
  * Created by vitaly on 25.03.16.
@@ -52,6 +53,7 @@ public class ActivityMain extends AppCompatActivity implements SensorEventListen
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
+
         sensorMgr = (SensorManager) getSystemService(SENSOR_SERVICE);
 
         sensorMgr.registerListener(this,
@@ -124,12 +126,11 @@ public class ActivityMain extends AppCompatActivity implements SensorEventListen
                 if (speed > SHAKE_THRESHOLD) {
                     if(!isChosen) {
                         isChosen = true;
+                        Values.city = Math.abs(new Random(System.currentTimeMillis()).nextInt()) % 20 ;
                         Log.d("sensor", "shake detected w/ speed: " + speed);
                         Toast.makeText(this, "shake detected w/ speed: " + speed, Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(ActivityMain.this, ActivityPlace.class));
                     }
-
-
 
                 }
                 lastValues[X] = currentValues[X];

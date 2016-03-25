@@ -53,14 +53,6 @@ public class ActivityVR extends CardBoardAndroidApplication implements CardBoard
         environment.set(new ColorAttribute(ColorAttribute.AmbientLight, 0.4f, 0.4f, 0.4f, 1f));
         environment.add(new DirectionalLight().set(0.8f, 0.8f, 0.8f, -1f, -0.8f, -0.2f));
 
-//        ModelBuilder modelBuilder = new ModelBuilder();
-//        model = modelBuilder.createBox(5f, 5f, 5f,
-//                new Material(ColorAttribute.createDiffuse(Color.GREEN)),
-//                Usage.Position | Usage.Normal);
-//        instance = new ModelInstance(model);
-//        instance.transform.translate(0, 0, -50);
-
-
         batch = new ModelBatch();
 
         environment = new Environment();
@@ -98,14 +90,10 @@ public class ActivityVR extends CardBoardAndroidApplication implements CardBoard
         environment.add(new DirectionalLight().set(Color.WHITE, 10f, 10f, -10f));
         environment.add(new DirectionalLight().set(Color.WHITE, 10f, 10f, 10f));
 
-
         environment.add(new DirectionalLight().set(Color.RED, -1f, -1f, 0f));
 
         environment.add(new DirectionalLight().set(Color.BLUE, 1f, 1f, 0f));
         environment.add(new DirectionalLight().set(Color.RED, -1f, 1f, 0f));
-
-
-
 
         UBJsonReader reader = new UBJsonReader();
         G3dModelLoader modelLoader = new G3dModelLoader(reader);
@@ -143,7 +131,7 @@ public class ActivityVR extends CardBoardAndroidApplication implements CardBoard
     @Override
     public void onNewFrame(HeadTransform paramHeadTransform) {
         saber.transform.rotate(0, 1, 0, - Gdx.graphics.getDeltaTime() * 30);
-
+        Gdx.gl.glClearColor(1f, 1f, 1f, 1f);
     }
 
     @Override

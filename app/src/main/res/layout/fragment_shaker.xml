@@ -8,4 +8,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+    <TextView
+        android:id="@+id/worldpart_tv"
+        android:text="Part of the world: "
+        android:textSize="20sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/price"/>
+
+    <android.support.v7.widget.AppCompatSpinner
+        android:id="@+id/world_part"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/worldpart_tv"/>
+
 </RelativeLayout>
