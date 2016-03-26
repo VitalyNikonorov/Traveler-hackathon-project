@@ -148,10 +148,7 @@ public class ActivityPlace extends AppCompatActivity implements OnMapReadyCallba
         photo.setImageDrawable(drawable);
 
         cityName.setText(city.name);
-        cityName.setAlpha(0.6f);
-
         countryName.setText(city.country);
-        countryName.setAlpha(0.6f);
         //System.out.format("%.3f%n", pi);     // -->  "3.142"
         cityRating.setText(String.format("%.3f%n", city.getRating()));
 
@@ -159,10 +156,9 @@ public class ActivityPlace extends AppCompatActivity implements OnMapReadyCallba
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-
-        LatLng sydney = new LatLng(-34, 151);
-        googleMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        LatLng latLng = new LatLng(city.latitude, city.longitude);
+        googleMap.addMarker(new MarkerOptions().position(latLng).title("Marker in Sydney"));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
 
     }
 }
