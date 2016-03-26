@@ -11,6 +11,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.vk.sdk.VKAccessToken;
 import com.vk.sdk.VKCallback;
 import com.vk.sdk.VKScope;
@@ -26,7 +32,7 @@ import net.nikonorov.bananashake.utils.AmazingPicture;
 /**
  * Created by vitaly on 25.03.16.
  */
-public class ActivityPlace extends AppCompatActivity {
+public class ActivityPlace extends AppCompatActivity implements OnMapReadyCallback {
 
     private static final String LOG_TAG = "MyActivityPlace";
     private City city = null;
@@ -43,6 +49,10 @@ public class ActivityPlace extends AppCompatActivity {
         setContentView(R.layout.activity_place);
 
         getSupportActionBar().hide();
+
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
 
         photo = (AmazingPicture) findViewById(R.id.city_image);
         cityName = (TextView) findViewById(R.id.city_name);
@@ -144,6 +154,15 @@ public class ActivityPlace extends AppCompatActivity {
         countryName.setAlpha(0.6f);
         //System.out.format("%.3f%n", pi);     // -->  "3.142"
         cityRating.setText(String.format("%.3f%n", city.getRating()));
+
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+
+        LatLng sydney = new LatLng(-34, 151);
+        googleMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
 
     }
 }

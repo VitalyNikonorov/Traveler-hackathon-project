@@ -33,6 +33,8 @@ dependencies {
     compile 'com.github.yangweigbh:libgdx-cardboard-core:0.2'
     compile 'com.badlogicgames.gdx:gdx-backend-android:1.7.1'
     compile 'com.badlogicgames.gdx:gdx:1.7.1'
+    
+    compile 'com.google.android.gms:play-services-maps:8.1.0'
 }
 
 tasks.withType(com.android.build.gradle.tasks.PackageApplication) { pkgTask ->
