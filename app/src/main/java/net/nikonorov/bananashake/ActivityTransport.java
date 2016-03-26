@@ -15,6 +15,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
+
 /**
  * Created by vitaly on 26.03.16.
  */
@@ -57,6 +60,9 @@ public class ActivityTransport extends AppCompatActivity implements SensorEventL
         findViewById(R.id.ok_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                YoYo.with(Techniques.RubberBand)
+                        .duration(700)
+                        .playOn(v);
                 String chosenItem = (String) spinner.getSelectedItem();
                 String url;
                 switch (chosenItem) {
