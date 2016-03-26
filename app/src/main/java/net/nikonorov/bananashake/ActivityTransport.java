@@ -1,6 +1,5 @@
 package net.nikonorov.bananashake;
 
-import android.app.Fragment;
 import android.content.Intent;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -8,14 +7,12 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.view.PagerAdapter;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatSpinner;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.Toast;
 
 /**
@@ -60,7 +57,7 @@ public class ActivityTransport extends AppCompatActivity implements SensorEventL
         findViewById(R.id.ok_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String chosenItem = (String)spinner.getSelectedItem();
+                String chosenItem = (String) spinner.getSelectedItem();
                 String url;
                 switch (chosenItem) {
                     case "plane":
@@ -89,11 +86,11 @@ public class ActivityTransport extends AppCompatActivity implements SensorEventL
                 Values.worldPart = position;
                 Toast.makeText(getBaseContext(), "Position = " + position, Toast.LENGTH_SHORT).show();
             }
+
             @Override
             public void onNothingSelected(AdapterView<?> arg0) {
             }
         });
-
 
 
     }
@@ -123,14 +120,14 @@ public class ActivityTransport extends AppCompatActivity implements SensorEventL
                 if (speed > SHAKE_THRESHOLD) {
 
                     if (Values.worldPart != 0) {
-                        Values.city = 4 * (Values.worldPart -1) + (int) speed % 4;
-                    }else {
+                        Values.city = 4 * (Values.worldPart - 1) + (int) speed % 4;
+                    } else {
                         Values.city = (int) speed % 20; //Math.abs(new Random(System.currentTimeMillis()).nextInt()) % 20 ;
                     }
                     Log.d("sensor", "shake detected w/ speed: " + speed);
                     Toast.makeText(this, "shake detected, speed: " + speed, Toast.LENGTH_SHORT).show();
                     //startActivity(new Intent(ActivityTransport.this, ActivityPlace.class));
-                    spinner.setSelection((int) (speed%3));
+                    spinner.setSelection((int) (speed % data.length));
                 }
                 lastValues[X] = currentValues[X];
                 lastValues[Y] = currentValues[Y];

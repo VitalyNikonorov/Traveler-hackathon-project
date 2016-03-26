@@ -19,6 +19,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
 import net.nikonorov.bananashake.ActivityPlace;
+import net.nikonorov.bananashake.App;
 import net.nikonorov.bananashake.FragmentSet;
 import net.nikonorov.bananashake.R;
 import net.nikonorov.bananashake.Values;
@@ -128,7 +129,7 @@ public class ActivityMain extends AppCompatActivity implements SensorEventListen
                         if (Values.worldPart != 0) {
                             Values.city = 4 * (Values.worldPart -1) + (int) speed % 4;
                         }else {
-                            Values.city = (int) speed % 20; //Math.abs(new Random(System.currentTimeMillis()).nextInt()) % 20 ;
+                            Values.city = (int) speed % App.cities.size(); //Math.abs(new Random(System.currentTimeMillis()).nextInt()) % 20 ;
                         }
                         Log.d("sensor", "shake detected w/ speed: " + speed);
                         Toast.makeText(this, "shake detected, speed: " + speed, Toast.LENGTH_SHORT).show();
