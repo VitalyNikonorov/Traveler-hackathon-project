@@ -64,6 +64,14 @@
         android:layout_below="@+id/city_image"
         android:text="VR" />
 
+    <Button
+        android:id="@+id/transport_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/city_image"
+        android:layout_toRightOf="@id/vr_btn"
+        android:text="transport" />
+
     <ImageButton
         android:id="@+id/share"
         android:layout_width="wrap_content"

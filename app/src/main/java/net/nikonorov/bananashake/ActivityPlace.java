@@ -50,6 +50,15 @@ public class ActivityPlace extends AppCompatActivity implements OnMapReadyCallba
 
         getSupportActionBar().hide();
 
+        Button transportBtn = (Button) findViewById(R.id.transport_btn);
+
+        transportBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ActivityPlace.this, ActivityTransport.class));
+            }
+        });
+
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);

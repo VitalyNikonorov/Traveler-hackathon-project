@@ -28,6 +28,8 @@
 
 
         <activity android:name=".ActivityPlace" />
+        <activity android:name=".ActivityTransport"
+            android:screenOrientation="portrait"/>
         <activity
             android:name="com.vk.sdk.VKServiceActivity"
             android:label="ServiceActivity"
