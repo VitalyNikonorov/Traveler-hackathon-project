@@ -21,7 +21,7 @@ public class App extends Application {
         cities.add(new City(0, "Австралия", "Сидней", "sidney", "saber/saber.g3db", -33.7945148, 150.3619664, 1, 5));
         cities.add(new City(1, "Австралия", "Канберра", "canberra", "saber/saber.g3db",-35.306946, 149.195,  2, 9));
 
-        cities.add(new City(2, "Новая Зеландия", "Веллингтон", "wellington", "saber/saber.g3db", 37.39411, -97.423225, 3, 13));
+        cities.add(new City(2, "Новая Зеландия", "Веллингтон", "wellington", "saber/saber.g3db", -41.244027, 174.6217699, 3, 13));
         cities.add(new City(3, "Новая Зеландия", "Окленд", "auckland", "saber/saber.g3db", -37.008057, 174.79167, 2, 10));
 
         cities.add(new City(4, "Китай", "Пекин", "beijing", "saber/saber.g3db", 40.080112, 116.58456, 1, 4));
