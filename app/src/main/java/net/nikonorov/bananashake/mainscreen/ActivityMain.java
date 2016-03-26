@@ -29,7 +29,7 @@ import net.nikonorov.bananashake.Values;
 public class ActivityMain extends AppCompatActivity implements SensorEventListener {
 
     private ViewPager viewPager;
-    private final int PAGE_COUNT = 3;
+    private final int PAGE_COUNT = 2;
     private static final int SHAKE_THRESHOLD = 5000;
 
     private static final int X = 0;
@@ -61,11 +61,9 @@ public class ActivityMain extends AppCompatActivity implements SensorEventListen
 
 
         fragments[FragmentSet.SHAKER] = new FragmentShaker();
-        fragments[FragmentSet.FRIENDS] = new FragmentFriends();
         fragments[FragmentSet.POPULAR] = new FragmentPopular();
 
         titles[FragmentSet.SHAKER] = "Shaker";
-        titles[FragmentSet.FRIENDS] = "Friends";
         titles[FragmentSet.POPULAR] = "Popular";
 
         viewPager = (ViewPager) findViewById(R.id.pager);
