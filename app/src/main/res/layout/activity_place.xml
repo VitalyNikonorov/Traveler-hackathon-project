@@ -81,4 +81,5 @@
         android:layout_alignBottom="@+id/transport_btn"
         android:layout_alignLeft="@+id/city_rating"
         android:layout_alignStart="@+id/city_rating" />
+
 </RelativeLayout>

@@ -17,11 +17,11 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-
-        cities.add(new City(0, "Австралия", "Сидней", "sidney", "sidney", 47.706944, -104.1925, 1, 5));
+        
+        cities.add(new City(0, "Австралия", "Сидней", "sidney", "sidney", -33.7945148, 150.3619664, 1, 5));
         cities.add(new City(1, "Австралия", "Канберра", "canberra", "canberra",-35.306946, 149.195,  2, 9));
 
-        cities.add(new City(2, "Новая Зеландия", "Веллингтон", "wellington", "wellington", 37.39411, -97.423225, 3, 13));
+        cities.add(new City(2, "Новая Зеландия", "Веллингтон", "wellington", "wellington", -41.244027, 174.6217699, 3, 13));
         cities.add(new City(3, "Новая Зеландия", "Окленд", "auckland", "auckland", -37.008057, 174.79167, 2, 10));
 
         cities.add(new City(4, "Китай", "Пекин", "beijing", "beijing", 40.080112, 116.58456, 1, 4));
@@ -30,8 +30,8 @@ public class App extends Application {
         cities.add(new City(6, "Япония", "Токио", "tokyo", "tokyo", 35.76472, 140.38638, 2, 10));
         cities.add(new City(7, "Япония", "Йокогама", "yokohama", "yokohama", 35.5075, 139.6175, 3, 14));
 
-        cities.add(new City(8, "США", "Лос-Анджелес", "la", "la", -37.40173, -72.425446,  4, 20));
-        cities.add(new City(9, "США", "Нью-Йорк", "nyc", "nyc", 40.777245, -73.872604, 3, 14));
+        cities.add(new City(8, "США", "Лос-Анджелес", "la", "saber/saber.g3db", -37.40173, -72.425446,  4, 20));
+        cities.add(new City(9, "США", "Нью-Йорк", "nyc", "saber/saber.g3db", 40.777245, -73.872604, 3, 14));
 
         cities.add(new City(10, "Канада", "Брантфорд", "brantford", "brantford", 43.13139, -80.3425, 1, 5));
         cities.add(new City(11, "Канада", "Колингвуд ", "collingwood", "collingwood", 44.449165, -80.15833,  3, 15));

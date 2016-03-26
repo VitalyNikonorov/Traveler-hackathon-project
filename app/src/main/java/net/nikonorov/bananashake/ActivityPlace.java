@@ -157,7 +157,7 @@ public class ActivityPlace extends AppCompatActivity implements OnMapReadyCallba
         cityName.setText(city.name);
         countryName.setText(city.country);
         //System.out.format("%.3f%n", pi);     // -->  "3.142"
-        cityRating.setText(String.format("%.3f", city.getRating()));
+        cityRating.setText("\u272A" + String.format("%.3f", city.getRating()));
 
     }
 
