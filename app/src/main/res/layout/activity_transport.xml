@@ -28,6 +28,8 @@
         android:textAppearance="@style/textStyle"
         android:textSize="50sp"
         android:minHeight="50dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginRight="70dp"
         android:layout_width="match_parent"
         android:layout_below="@+id/transport_caption"
         android:layout_height="wrap_content"/>
