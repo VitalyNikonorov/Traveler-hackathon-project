@@ -103,11 +103,11 @@ public class ActivityVR extends CardBoardAndroidApplication implements CardBoard
 
         ObjLoader loader = new ObjLoader();
 
-        model = new ModelInstance(loader.loadModel(Gdx.files.internal("moscow/moscow.obj")));
+        model = new ModelInstance(loader.loadModel(Gdx.files.internal("moscow/moscoww.obj")));
 
-        model.transform.scl(0.4f);
+        //model.transform.scl(0.4f);
 
-        model.transform.translate(2, 5, -3);
+        //model.transform.translate(2, 5, -3);
     }
 
     @Override
@@ -135,7 +135,7 @@ public class ActivityVR extends CardBoardAndroidApplication implements CardBoard
 
     @Override
     public void onNewFrame(HeadTransform paramHeadTransform) {
-        model.transform.rotate(0, 1, 0, - Gdx.graphics.getDeltaTime() * 30);
+        //model.transform.rotate(0, 1, 0, - Gdx.graphics.getDeltaTime() * 30);
         Gdx.gl.glClearColor(1f, 1f, 1f, 1f);
     }
 
