@@ -1,40 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorBack">
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/price"
-        android:layout_centerVertical="true"
-        android:layout_above="@+id/worldpart_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Выбери часть света"
+        android:textAppearance="@style/textStyle"
+        android:textSize="25sp"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:text="Make your choise:"/>
-
-    <TextView
-        android:id="@+id/worldpart_tv"
-        android:text="Part of the world: "
-        android:textSize="20sp"
-        android:layout_centerHorizontal="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/world_part"/>
+        android:layout_marginTop="74dp" />
 
     <android.support.v7.widget.AppCompatSpinner
         android:id="@+id/world_part"
         android:textAlignment="center"
-        android:layout_width="match_parent"
-        android:layout_centerVertical="true"
-        android:layout_height="wrap_content" />
+        android:layout_width="200dp"
+        android:textSize="50sp"
+        android:minHeight="50dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/price"
+        android:layout_centerHorizontal="true"
+        style="@style/mySpinnerItemStyle"
+        android:layout_marginTop="44dp" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:textColor="@color/colorAccent"
-        android:textSize="40sp"
-        android:layout_below="@+id/world_part"
-        android:text="AND SHAKE"/>
+        android:textAppearance="@style/textShakeStyle"
+        android:text="ТРЯСИ!"
+        android:layout_marginTop="39dp"
+        android:layout_below="@+id/textViewOr"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/textViewOr"
+        android:textAppearance="@style/textStyle"
+        android:text="и"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

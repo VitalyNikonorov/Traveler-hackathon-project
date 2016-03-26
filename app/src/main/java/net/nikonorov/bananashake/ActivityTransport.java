@@ -22,7 +22,7 @@ import android.widget.Toast;
  */
 public class ActivityTransport extends AppCompatActivity implements SensorEventListener {
 
-    String[] data = {"plane", "train", "ship"};
+    String[] data = {"самолет", "ж/д"};
 
     private static final int SHAKE_THRESHOLD = 5000;
 

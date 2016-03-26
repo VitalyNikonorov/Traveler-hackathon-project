@@ -26,10 +26,12 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="landscape" />
 
+        <activity
+            android:name=".ActivityPlace"
+            android:screenOrientation="portrait" />
 
-        <activity android:name=".ActivityPlace" />
         <activity android:name=".ActivityTransport"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.vk.sdk.VKServiceActivity"
             android:label="ServiceActivity"
@@ -42,7 +44,7 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyAqnzNG2aKkdxWEQaLZ5xfh0BTD5EuuT1U"/>
+            android:value="AIzaSyAqnzNG2aKkdxWEQaLZ5xfh0BTD5EuuT1U" />
 
     </application>
 

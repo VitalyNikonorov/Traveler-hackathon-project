@@ -25,14 +25,13 @@ public class FragmentShaker extends Fragment {
     public FragmentShaker() {
     }
 
-    String[] data = {"All world", "Australia", "Asia", "Americas", "Africa", "Europe"};
+    String[] data = {"Весь Мир", "Австралия", "Азия", "Америка", "Африка", "Европа"};
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_shaker, null);
-
 
         // адаптер
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, data);
@@ -51,7 +50,7 @@ public class FragmentShaker extends Fragment {
                                        int position, long id) {
                 // показываем позиция нажатого элемента
                 Values.worldPart = position;
-                Toast.makeText(getActivity().getBaseContext(), "Position = " + position, Toast.LENGTH_SHORT).show();
+                // Toast.makeText(getActivity().getBaseContext(), "Position = " + position, Toast.LENGTH_SHORT).show();
             }
             @Override
             public void onNothingSelected(AdapterView<?> arg0) {

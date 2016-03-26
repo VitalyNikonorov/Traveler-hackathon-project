@@ -6,6 +6,27 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@drawable/grey</item>
+
+    </style>
+
+    <style name="mySpinnerItemStyle" parent="Base.Widget.AppCompat.Spinner">
+        <item name="android:textColor">@color/vk_white</item>
+    </style>
+
+    <style name="bgColor">
+        <!--<item name="android:background">@android:color/background_light</item>
+        <item name="android:background">@drawable/la</item>-->
+    </style>
+
+    <style name="textStyle">
+        <item name="android:textColor">@color/vk_white</item>
+        <item name="android:textSize">25sp</item>
+    </style>
+
+    <style name="textShakeStyle">
+        <item name="android:textSize">45sp</item>
+        <item name="android:textColor">@color/colorAccent</item>
     </style>
 
 </resources>
