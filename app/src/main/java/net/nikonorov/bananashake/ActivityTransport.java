@@ -15,13 +15,17 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
+
 /**
  * Created by vitaly on 26.03.16.
  */
 public class ActivityTransport extends AppCompatActivity implements SensorEventListener {
     private static final String planeUrl = "https://www.onetwotrip.com/ru/";
     private static final String trainUrl = "https://www.onetwotrip.com/ru/railways/";
-    String[] data = {"plane", "train"};
+
+    String[] data = {"самолет", "ж/д"};
 
     private static final int SHAKE_THRESHOLD = 5000;
 
@@ -57,10 +61,13 @@ public class ActivityTransport extends AppCompatActivity implements SensorEventL
         findViewById(R.id.ok_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                YoYo.with(Techniques.RubberBand)
+                        .duration(700)
+                        .playOn(v);
                 String chosenItem = (String) spinner.getSelectedItem();
                 String url;
                 switch (chosenItem) {
-                    case "plane":
+                    case "самолет":
                         url = planeUrl;
                         break;
                     default:

@@ -64,8 +64,8 @@ public class ActivityMain extends AppCompatActivity implements SensorEventListen
         fragments[FragmentSet.SHAKER] = new FragmentShaker();
         fragments[FragmentSet.POPULAR] = new FragmentPopular();
 
-        titles[FragmentSet.SHAKER] = "Shaker";
-        titles[FragmentSet.POPULAR] = "Popular";
+        titles[FragmentSet.SHAKER] = "Мне повезет";
+        titles[FragmentSet.POPULAR] = "Популярное";
 
         viewPager = (ViewPager) findViewById(R.id.pager);
         pagerAdapter = new MyFragmentPagerAdapter(getFragmentManager());

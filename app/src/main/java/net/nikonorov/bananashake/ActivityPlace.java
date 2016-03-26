@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -158,7 +157,7 @@ public class ActivityPlace extends AppCompatActivity implements OnMapReadyCallba
         cityName.setText(city.name);
         countryName.setText(city.country);
         //System.out.format("%.3f%n", pi);     // -->  "3.142"
-        cityRating.setText(String.format("%.3f%n", city.getRating()));
+        cityRating.setText(String.format("%.3f", city.getRating()));
 
     }
 
