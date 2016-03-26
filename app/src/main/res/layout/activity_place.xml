@@ -1,68 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBack">
+    android:background="@color/colorBack"
+    android:orientation="vertical">
 
     <net.nikonorov.bananashake.utils.AmazingPicture
         android:id="@+id/city_image"
-        android:src="@drawable/paris"
-        android:layout_alignParentTop="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/paris" />
 
     <TextView
         android:id="@+id/city_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@android:color/white"
-        android:background="@android:color/black"
+        android:layout_above="@+id/country_name"
         android:layout_marginLeft="16dp"
-        android:textSize="40sp"
+        android:alpha="0.6"
+        android:background="@android:color/black"
         android:text="Paris"
-        android:layout_above="@+id/country_name"/>
+        android:textColor="@android:color/white"
+        android:textSize="40sp" />
 
     <TextView
         android:id="@+id/country_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@android:color/white"
-        android:background="@android:color/black"
+        android:layout_above="@+id/vr_btn"
         android:layout_marginLeft="16dp"
-        android:textSize="30sp"
+        android:alpha="0.6"
+        android:background="@android:color/black"
         android:text="country: France"
-        android:layout_above="@+id/vr_btn"/>
+        android:textColor="@android:color/white"
+        android:textSize="30sp" />
 
     <TextView
         android:id="@+id/city_rating"
-        android:textSize="15sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/country_name"
         android:layout_alignParentRight="true"
-        android:text="raring"
-        android:layout_below="@+id/city_image"/>
+        android:alpha="0.6"
+        android:background="@android:color/black"
+        android:text="rating"
+        android:textColor="@android:color/white"
+        android:textSize="20sp" />
+
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/city_image"
+        tools:context=".MapsActivity" />
 
     <Button
         android:id="@+id/vr_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="VR"
-        android:layout_below="@+id/city_image"/>
+        android:layout_below="@+id/city_image"
+        android:text="VR" />
 
     <ImageButton
         android:id="@+id/share"
         android:layout_width="wrap_content"
-        android:layout_toRightOf="@id/vr_btn"
-        android:layout_alignTop="@id/vr_btn"
-        android:src="@drawable/ic_share_black_18dp"
-        android:layout_height="wrap_content" />
-
-    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/map"
-        tools:context=".MapsActivity"
-        android:name="com.google.android.gms.maps.SupportMapFragment" />
-
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/city_image"
+        android:src="@drawable/ic_share_black_18dp" />
 </RelativeLayout>
