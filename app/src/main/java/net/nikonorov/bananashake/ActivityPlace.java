@@ -108,7 +108,6 @@ public class ActivityPlace extends AppCompatActivity implements OnMapReadyCallba
     private void shareVK() {
 
         final Bitmap bitmap = ((BitmapDrawable) photo.getDrawable()).getBitmap();
-        setContentView(R.layout.activity_place);
         VKShareDialogBuilder vkShareDialogBuilder = new VKShareDialogBuilder();
         vkShareDialogBuilder
                 .setText(String.format("Побывал в городе %s", cityName.getText()))
