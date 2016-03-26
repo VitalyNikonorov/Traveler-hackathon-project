@@ -1,7 +1,6 @@
 package net.nikonorov.bananashake.mainscreen;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;

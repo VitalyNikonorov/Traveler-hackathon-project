@@ -33,7 +33,6 @@ import net.nikonorov.bananashake.utils.AmazingPicture;
  * Created by vitaly on 25.03.16.
  */
 public class ActivityPlace extends AppCompatActivity implements OnMapReadyCallback {
-
     private static final String LOG_TAG = "MyActivityPlace";
     private City city = null;
     private AmazingPicture photo;
