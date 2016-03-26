@@ -157,7 +157,7 @@ public class ActivityPlace extends AppCompatActivity implements OnMapReadyCallba
     @Override
     public void onMapReady(GoogleMap googleMap) {
         LatLng latLng = new LatLng(city.latitude, city.longitude);
-        googleMap.addMarker(new MarkerOptions().position(latLng).title("Marker in Sydney"));
+        googleMap.addMarker(new MarkerOptions().position(latLng).title(String.format("Путешествуем в город %s", city.name)));
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
 
     }
