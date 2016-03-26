@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -33,7 +34,6 @@ import net.nikonorov.bananashake.utils.AmazingPicture;
  * Created by vitaly on 25.03.16.
  */
 public class ActivityPlace extends AppCompatActivity implements OnMapReadyCallback {
-
     private static final String LOG_TAG = "MyActivityPlace";
     private City city = null;
     private AmazingPicture photo;

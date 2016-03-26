@@ -134,7 +134,6 @@ public class ActivityMain extends AppCompatActivity implements SensorEventListen
                         Toast.makeText(this, "shake detected, speed: " + speed, Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(ActivityMain.this, ActivityPlace.class));
                     }
-
                 }
                 lastValues[X] = currentValues[X];
                 lastValues[Y] = currentValues[Y];

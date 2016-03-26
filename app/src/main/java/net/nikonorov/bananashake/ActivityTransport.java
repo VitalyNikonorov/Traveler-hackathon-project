@@ -6,6 +6,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v7.app.AppCompatActivity;
@@ -21,8 +22,9 @@ import android.widget.Toast;
  * Created by vitaly on 26.03.16.
  */
 public class ActivityTransport extends AppCompatActivity implements SensorEventListener {
-
-    String[] data = {"plane", "train", "ship"};
+    private static final String planeUrl = "https://www.onetwotrip.com/ru/";
+    private static final String trainUrl = "https://www.onetwotrip.com/ru/railways/";
+    String[] data = {"plane", "train"};
 
     private static final int SHAKE_THRESHOLD = 5000;
 
@@ -51,10 +53,28 @@ public class ActivityTransport extends AppCompatActivity implements SensorEventL
 
 
         // адаптер
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(ActivityTransport.this, android.R.layout.simple_spinner_item, data);
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(ActivityTransport.this, android.R.layout.simple_spinner_item, data);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spinner = (AppCompatSpinner) findViewById(R.id.transport_choise);
+        findViewById(R.id.ok_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String chosenItem = (String)spinner.getSelectedItem();
+                String url;
+                switch (chosenItem) {
+                    case "plane":
+                        url = planeUrl;
+                        break;
+                    default:
+                        url = trainUrl;
+                        break;
+                }
+                Uri uriUrl = Uri.parse(url);
+                Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
+                startActivity(launchBrowser);
+            }
+        });
         spinner.setAdapter(adapter);
         // заголовок
         spinner.setPrompt("Title");
