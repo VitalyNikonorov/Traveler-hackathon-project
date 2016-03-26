@@ -35,6 +35,8 @@ public class ActivityVR extends CardBoardAndroidApplication implements CardBoard
     private static final float Z_FAR = 1000.0f;
     private static final float CAMERA_Z = 0;//.1f;
 
+    private City city = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +60,17 @@ public class ActivityVR extends CardBoardAndroidApplication implements CardBoard
 
         environment = new Environment();
         environment.set(new ColorAttribute(ColorAttribute.AmbientLight, 1f, 1f, 1f, 1f));
+
+
+        city = App.cities.get(Values.city);
+
+        ObjLoader loader = new ObjLoader();
+
+        model = new ModelInstance(loader.loadModel(Gdx.files.internal(city.vr + "/moscow.obj")));
+
+        model.transform.scl(0.5f);
+
+        model.transform.translate(0f, 0f, 0f);
 
 //        environment.set(new ColorAttribute(ColorAttribute.AmbientLight, 10f, 10f, 10f, 10f));
 //        environment.set(new ColorAttribute(ColorAttribute.AmbientLight, 100f, 100f, 100f, 100f));
@@ -101,13 +114,6 @@ public class ActivityVR extends CardBoardAndroidApplication implements CardBoard
 //
 //        model = new ModelInstance(modelLoader.loadModel(Gdx.files.internal("mosc/moscow.g3db")));
 
-        ObjLoader loader = new ObjLoader();
-
-        model = new ModelInstance(loader.loadModel(Gdx.files.internal("auckland/moscow.obj")));
-
-        model.transform.scl(0.5f);
-
-        model.transform.translate(0f, 0f, 0f);
     }
 
     @Override
@@ -125,6 +131,7 @@ public class ActivityVR extends CardBoardAndroidApplication implements CardBoard
 
     @Override
     public void resume() {
+
 
     }
 
