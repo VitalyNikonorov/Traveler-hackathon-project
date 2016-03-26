@@ -91,7 +91,7 @@ public class ActivityTransport extends AppCompatActivity implements SensorEventL
                                        int position, long id) {
                 // показываем позиция нажатого элемента
                 Values.worldPart = position;
-                Toast.makeText(getBaseContext(), "Position = " + position, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getBaseContext(), "Position = " + position, Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -132,7 +132,7 @@ public class ActivityTransport extends AppCompatActivity implements SensorEventL
                         Values.city = (int) speed % 20; //Math.abs(new Random(System.currentTimeMillis()).nextInt()) % 20 ;
                     }
                     Log.d("sensor", "shake detected w/ speed: " + speed);
-                    Toast.makeText(this, "shake detected, speed: " + speed, Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(this, "shake detected, speed: " + speed, Toast.LENGTH_SHORT).show();
                     //startActivity(new Intent(ActivityTransport.this, ActivityPlace.class));
                     spinner.setSelection((int) (speed % data.length));
                 }

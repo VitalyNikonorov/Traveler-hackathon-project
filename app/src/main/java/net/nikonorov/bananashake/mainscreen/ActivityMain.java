@@ -132,7 +132,7 @@ public class ActivityMain extends AppCompatActivity implements SensorEventListen
                             Values.city = (int) speed % App.cities.size(); //Math.abs(new Random(System.currentTimeMillis()).nextInt()) % 20 ;
                         }
                         Log.d("sensor", "shake detected w/ speed: " + speed);
-                        Toast.makeText(this, "shake detected, speed: " + speed, Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(this, "shake detected, speed: " + speed, Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(ActivityMain.this, ActivityPlace.class));
                     }
                 }
