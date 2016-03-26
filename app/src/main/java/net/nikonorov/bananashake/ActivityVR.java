@@ -59,17 +59,17 @@ public class ActivityVR extends CardBoardAndroidApplication implements CardBoard
         environment = new Environment();
         environment.set(new ColorAttribute(ColorAttribute.AmbientLight, 1f, 1f, 1f, 1f));
 
-        environment.set(new ColorAttribute(ColorAttribute.AmbientLight, 10f, 10f, 10f, 10f));
-        environment.set(new ColorAttribute(ColorAttribute.AmbientLight, 100f, 100f, 100f, 100f));
-        environment.set(new ColorAttribute(ColorAttribute.AmbientLight, -1f, -1f, -1f, 1f));
-        environment.set(new ColorAttribute(ColorAttribute.AmbientLight, 1f, 1f, 1f, 1f));
-        environment.set(new ColorAttribute(ColorAttribute.AmbientLight, 1f, 1f, 1f, 1f));
-        environment.set(new ColorAttribute(ColorAttribute.AmbientLight, 1f, 1f, 1f, 1f));
-        environment.set(new ColorAttribute(ColorAttribute.AmbientLight, 1f, 1f, 1f, 1f));
-        environment.set(new ColorAttribute(ColorAttribute.AmbientLight, 1f, 1f, 1f, 1f));
-        environment.set(new ColorAttribute(ColorAttribute.AmbientLight, 1f, 1f, 1f, 1f));
-        environment.set(new ColorAttribute(ColorAttribute.AmbientLight, 1f, 1f, 1f, 1f));
-        environment.set(new ColorAttribute(ColorAttribute.AmbientLight, 1f, 1f, 1f, 1f));
+//        environment.set(new ColorAttribute(ColorAttribute.AmbientLight, 10f, 10f, 10f, 10f));
+//        environment.set(new ColorAttribute(ColorAttribute.AmbientLight, 100f, 100f, 100f, 100f));
+//        environment.set(new ColorAttribute(ColorAttribute.AmbientLight, -1f, -1f, -1f, 1f));
+//        environment.set(new ColorAttribute(ColorAttribute.AmbientLight, 1f, 1f, 1f, 1f));
+//        environment.set(new ColorAttribute(ColorAttribute.AmbientLight, 1f, 1f, 1f, 1f));
+//        environment.set(new ColorAttribute(ColorAttribute.AmbientLight, 1f, 1f, 1f, 1f));
+//        environment.set(new ColorAttribute(ColorAttribute.AmbientLight, 1f, 1f, 1f, 1f));
+//        environment.set(new ColorAttribute(ColorAttribute.AmbientLight, 1f, 1f, 1f, 1f));
+//        environment.set(new ColorAttribute(ColorAttribute.AmbientLight, 1f, 1f, 1f, 1f));
+//        environment.set(new ColorAttribute(ColorAttribute.AmbientLight, 1f, 1f, 1f, 1f));
+//        environment.set(new ColorAttribute(ColorAttribute.AmbientLight, 1f, 1f, 1f, 1f));
 
 
 //        environment.add(new DirectionalLight().set(Color.WHITE, -100f, -100f, -100f));
@@ -82,14 +82,14 @@ public class ActivityVR extends CardBoardAndroidApplication implements CardBoard
 //        environment.add(new DirectionalLight().set(Color.WHITE, 100f, 100f, 100f));
 
 
-        environment.add(new DirectionalLight().set(Color.WHITE, -10f, -10f, -10f));
-        environment.add(new DirectionalLight().set(Color.WHITE, -10f, -10f, 10f));
-        environment.add(new DirectionalLight().set(Color.WHITE, -10f, 10f, -10f));
-        environment.add(new DirectionalLight().set(Color.WHITE, -10f, 10f, 10f));
-        environment.add(new DirectionalLight().set(Color.WHITE, 10f, -10f, -10f));
-        environment.add(new DirectionalLight().set(Color.WHITE, 10f, -10f, 10f));
-        environment.add(new DirectionalLight().set(Color.WHITE, 10f, 10f, -10f));
-        environment.add(new DirectionalLight().set(Color.WHITE, 10f, 10f, 10f));
+//        environment.add(new DirectionalLight().set(Color.WHITE, -10f, -10f, -10f));
+//        environment.add(new DirectionalLight().set(Color.WHITE, -10f, -10f, 10f));
+//        environment.add(new DirectionalLight().set(Color.WHITE, -10f, 10f, -10f));
+//        environment.add(new DirectionalLight().set(Color.WHITE, -10f, 10f, 10f));
+//        environment.add(new DirectionalLight().set(Color.WHITE, 10f, -10f, -10f));
+//        environment.add(new DirectionalLight().set(Color.WHITE, 10f, -10f, 10f));
+//        environment.add(new DirectionalLight().set(Color.WHITE, 10f, 10f, -10f));
+//        environment.add(new DirectionalLight().set(Color.WHITE, 10f, 10f, 10f));
 
         //environment.add(new DirectionalLight().set(Color.RED, -1f, -1f, 0f));
 
@@ -103,7 +103,7 @@ public class ActivityVR extends CardBoardAndroidApplication implements CardBoard
 
         ObjLoader loader = new ObjLoader();
 
-        model = new ModelInstance(loader.loadModel(Gdx.files.internal("mosc/moscow.obj")));
+        model = new ModelInstance(loader.loadModel(Gdx.files.internal("auckland/moscow.obj")));
 
         model.transform.scl(0.5f);
 
